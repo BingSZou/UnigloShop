@@ -1,0 +1,13 @@
+<h1>
+  Product-list component
+</h1>
+<div class="row">
+  <div class="card-container" *ngFor="let p of productsList">
+    <product-thumbnail
+              [product]="p">
+
+    </product-thumbnail>
+  </div>
+</div>
+<div class="container product-container">
+</div>

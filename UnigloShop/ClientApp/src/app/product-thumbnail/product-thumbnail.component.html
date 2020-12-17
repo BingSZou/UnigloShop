@@ -1,0 +1,21 @@
+<div class="container productbox">
+  <div [routerLink]="['/products', product.id]">
+    <div class="product-card-image-wraper mb-2">
+      <img class="product-card-image" src="{{product.imageUrl}}" />
+    </div>
+    <div >
+      <h5>{{product.title}}</h5>
+      <div>
+        <span>{{product.origPrice | currency:"USD":true}}</span>
+        <span class="pricediscount"> {{percentDiscount}}%</span>
+      </div>
+      <div>
+        Now <span class="pricetext">{{product.price | currency:"USD":true}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="btn-wrapper mb-2">
+    <button class="btn btn-primary" (click)="addToCart()">Add to cart</button>
+    <button class="btn btn-primary float-right">Quick View</button>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="mb-4">
+  <span class="glyphicon glyphicon-align-left">
+    <a [routerLink]='["/products"]'> < Back</a>
+  </span>
+
+</div>
+<div class="row" *ngIf="($product | async) as p; else loading">
+  <div class="mr-4">
+    <img [src]="p.imageUrl" />
+  </div>
+  <div class="col-md-4">
+    <h2>{{p.title}}</h2>
+    <h3>{{p.price | currency:"USD"}}</h3>
+    <div style="border:solid 1px;margin:2rem 0"></div>
+    <div class="mb-1">
+      <color-choices></color-choices>
+    </div>
+    <size-choices class="mx-1"></size-choices>
+
+    <div class="add-button-container">
+      <select class="select-box" name="quantity" id="quantity">
+          <option>1</select>
+      <button class="add-button" (click)="addToCart()">ADD TO BAG</button>
+    </div>
+
+  </div>
+  <div class="product-detail-container">
+    <h5>Product Detail</h5>
+    {{p.Detail}}
+  </div>
+</div>
+<ng-template #loading>
+  Loading ...
+</ng-template>

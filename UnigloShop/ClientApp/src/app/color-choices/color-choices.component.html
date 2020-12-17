@@ -1,0 +1,8 @@
+
+<h5>Color: <span style="font-weight: 400">{{selectedColor.name}}</span></h5>
+
+<div class="dot"
+     *ngFor="let c of availableColors"
+          [style.background-color]="c.encode"
+     (click)="changeSelection(c)">
+    </div>
