@@ -1,4 +1,24 @@
 <body>
+<div class="site-branding">
+  <h1 class="site-header">
+    <a [routerLink]="['products']">
+          <img src="/assets/images/logo.png">
+    </a>
+  </h1>
+  <div class="login-and-basket">
+    <div class="mr-3">
+          <a [routerLink]="['/profile']"
+                       *ngIf="authService.isAuthenticated()">
+                    Welcome {{authService.currentUser.firstName}}
+          </a>
+          <a [routerLink]="['/user/login']"
+                            *ngIf="!authService.isAuthenticated()">
+                    Login
+          </a>
+    </div>
+    <cart-bag></cart-bag>
+  </div>
+</div>
   <app-nav-menu></app-nav-menu>
   <div class="container">
     <router-outlet></router-outlet>

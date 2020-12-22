@@ -15,7 +15,9 @@
     </div>
   </div>
   <div class="btn-wrapper mb-2">
-    <button class="btn btn-primary" (click)="addToCart()">Add to cart</button>
+    <button class="btn btn-primary"
+            [disabled]="!hasAvailableProduct"
+            (click)="addToCart()">Add to cart</button>
     <button class="btn btn-primary float-right">Quick View</button>
   </div>
 </div>

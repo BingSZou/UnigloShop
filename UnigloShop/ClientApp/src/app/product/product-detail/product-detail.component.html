@@ -1,33 +1,36 @@
-<div class="mb-4">
+<div class="mx-5">
   <span class="glyphicon glyphicon-align-left">
     <a [routerLink]='["/products"]'> < Back</a>
   </span>
-
 </div>
-<div class="row" *ngIf="($product | async) as p; else loading">
+<div class="d-flex justify-content-center mb-5"
+        *ngIf="($product | async) as p; else loading">
   <div class="mr-4">
     <img [src]="p.imageUrl" />
   </div>
   <div class="col-md-4">
     <h2>{{p.title}}</h2>
     <h3>{{p.price | currency:"USD"}}</h3>
-    <div style="border:solid 1px;margin:2rem 0"></div>
+    <div class="border-bottom"></div>
     <div class="mb-1">
       <color-choices></color-choices>
     </div>
     <size-choices class="mx-1"></size-choices>
 
-    <div class="add-button-container">
+    <div class="add-button-container mb-4">
       <select class="select-box" name="quantity" id="quantity">
           <option>1</select>
-      <button class="add-button" (click)="addToCart()">ADD TO BAG</button>
+      <button class="btn btn-secondary ml-1 height-3rem"
+            [disabled]="!hasAvailableProduct"
+            (click)="addToCart()">ADD TO BAG</button>
     </div>
 
+    <div>
+      <h5 class="border-bottom">Product Detail</h5>
+      {{p.Detail}}  this is a flannel shirt with soft cotton
+    </div>
   </div>
-  <div class="product-detail-container">
-    <h5>Product Detail</h5>
-    {{p.Detail}}
-  </div>
+
 </div>
 <ng-template #loading>
   Loading ...

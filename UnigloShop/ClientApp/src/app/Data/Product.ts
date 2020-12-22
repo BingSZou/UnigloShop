@@ -5,4 +5,5 @@ export interface Product
   price: number;
   origPrice: number;
   imageUrl: string;
+  totalQuantity: number;
 }

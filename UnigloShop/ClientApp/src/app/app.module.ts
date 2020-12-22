@@ -7,34 +7,33 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { ProductsComponent } from './products/products.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductServices } from './Data/product.service';
-import { ProductThumbnailComponent } from './product-thumbnail/product-thumbnail.component';
 import { appRoutes } from './routes'
-import { ColorChoicesComponent } from './color-choices/color-choices.component';
-import { SizeChoicesComponent } from './size-choices/size-choices.component';
+import { ToastrService } from './common/toaster.service';
+import { CartModule } from './cart/cart.module';
+import { UserModule } from './user/user.module';
+import { ProductModule } from './product/product.module';
+import { AuthService } from './user/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    ProductsComponent,
-    ProductThumbnailComponent,
-    ProductDetailComponent,
-    CounterComponent,
-    ColorChoicesComponent,
-    SizeChoicesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ProductModule,
+    CartModule,
+    UserModule
   ],
-  providers: [ProductServices],
+  providers: [ProductServices,
+              ToastrService,
+              AuthService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { promise } from 'protractor';
 import { Observable, of } from 'rxjs';
+import { CartService } from './cart.service';
 import { Product } from './Product';
 
 @Injectable({
@@ -13,7 +15,8 @@ export class ProductServices {
       title: "First product",
       price: 19.99,
       origPrice: 29.99,
-      imageUrl: '/assets/images/flannelShirt.webp'
+      imageUrl: '/assets/images/flannelShirt.webp',
+      totalQuantity: 1
 
     },
     {
@@ -21,17 +24,19 @@ export class ProductServices {
       title: "Second Product",
       price: 9.99,
       origPrice: 23.99,
-      imageUrl: '/assets/images/flannelShirt2.webp'
+      imageUrl: '/assets/images/flannelShirt2.webp',
+      totalQuantity:1
     },
     {
       id: 3,
       title: "Third Product",
       price: 14.99,
       origPrice: 19.99,
-      imageUrl: '/assets/images/flannelShirt3.webp'
+      imageUrl: '/assets/images/flannelShirt3.webp',
+      totalQuantity :1
     }
   ];
- 
+
   constructor() { }
   getAllProducts(): Product[] { return this.productsList; }
 
@@ -40,10 +45,13 @@ export class ProductServices {
     return of(this.productsList[id-1]);
   }
 
-  addProductToCart(id: number, qty: number) {
-    this.shoppingcart.push({
-      productId: id,
-      quantity: qty
-    })
+  reduceProduct(product: Product, qty: number) {
+
+    if (product.totalQuantity < qty)
+    {
+      console.log("Can't reduce product quantity, not enough quantity" + product.totalQuantity);
+    }
+
+    product.totalQuantity = product.totalQuantity - qty;
   }
 }

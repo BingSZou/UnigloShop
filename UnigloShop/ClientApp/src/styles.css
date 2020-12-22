@@ -4,13 +4,9 @@
 a {
   color: #0366d6;
 }
-
-code {
-  color: #e01a76;
+.body {
+  background-color: #8c939b;
 }
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.toast {
+  background-color: #13460e;
 }

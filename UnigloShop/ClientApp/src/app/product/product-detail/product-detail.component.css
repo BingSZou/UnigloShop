@@ -1,0 +1,29 @@
+.product-detail-title {
+}
+.border-bottom {
+  border-bottom: 3px solid #000000;
+  margin: 1rem 0;
+}
+
+.add-button-container {
+  margin-top: 2rem;
+  height: 3rem;
+}
+.add-button {
+  height: 3rem;
+  padding: 0.5rem;
+  background-color: #000000;
+  color: #ffffff;
+  align-self: stretch;
+}
+.add-button:disabled {
+  background-color: gray;
+}
+.height-3rem {
+  height: 3rem;
+}
+.select-box {
+  text-align: center;
+  width: 3rem;
+  height: 3rem;
+}

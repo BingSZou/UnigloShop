@@ -5,7 +5,7 @@ declare let toastr : any;
 @Injectable({
   providedIn: 'root'
 })
-export class ToasterService {
+export class ToastrService {
 
   success(msg : string, title?: string) {
     toastr.success(msg, title)
